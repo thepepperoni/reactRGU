@@ -1,5 +1,8 @@
 import React from 'react';
-import './get.css'
+import './get.css';
+import './search.css';
+import CircularProgress from 'material-ui/CircularProgress';
+import ProfileTabs from "./profile";
 class Get extends React.Component{
     constructor(props){
         super(props);
@@ -12,11 +15,10 @@ class Get extends React.Component{
     }
 
     componentDidMount(){
-        console.log(this.state.id.params.id);
         fetch("https://api.dc01.gamelockerapp.com/shards/global/players?filter[playerNames]="+this.state.id.params.id,{
             method: 'GET',
             headers: {
-                "Authorization":" eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3MzRiOTU5MC1mZDM4LTAxMzUtNmNhZC0wYTU4NjQ2MGE2NGYiLCJpc3MiOiJnYW1lbG9ja2VyIiwiaWF0IjoxNTE5NjU5MjY1LCJwdWIiOiJzdHVubG9jay1zdHVkaW9zIiwidGl0bGUiOiJiYXR0bGVyaXRlIiwiYXBwIjoiYmF0dGxldS0zN2RhZGFlZC1hY2FkLTQ3MjctODZiMS02ZTJlOGM5NGFlOWQiLCJzY29wZSI6ImNvbW11bml0eSIsImxpbWl0IjoxMH0.jf1RKIU35VN05oIp4031YxOYyLHSDlvQ0fefnoCCBNQ",
+                "Authorization":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3MzRiOTU5MC1mZDM4LTAxMzUtNmNhZC0wYTU4NjQ2MGE2NGYiLCJpc3MiOiJnYW1lbG9ja2VyIiwiaWF0IjoxNTE5NjU5MjY1LCJwdWIiOiJzdHVubG9jay1zdHVkaW9zIiwidGl0bGUiOiJiYXR0bGVyaXRlIiwiYXBwIjoiYmF0dGxldS0zN2RhZGFlZC1hY2FkLTQ3MjctODZiMS02ZTJlOGM5NGFlOWQiLCJzY29wZSI6ImNvbW11bml0eSIsImxpbWl0IjoxMH0.jf1RKIU35VN05oIp4031YxOYyLHSDlvQ0fefnoCCBNQ",
                 "Accept": "application/json",
             }
 
@@ -50,13 +52,11 @@ class Get extends React.Component{
         if (error) {
             return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
-            return <div>Loading...</div>;
+            return <div className="container"><CircularProgress size={60} thickness={7} /></div>;
         } else {
             return (
                 <div>
-                    <h1>{items.attributes.name}</h1>
-                    <h3 className="inline"> Global w/l: <p className="win inline">{items.attributes.stats[2]}</p><p className="inline">/</p><p className="loss inline">{items.attributes.stats[3]}</p></h3>
-
+                   <ProfileTabs data={items}/>
                 </div>
 
             );

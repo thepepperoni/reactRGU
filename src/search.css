@@ -1,0 +1,19 @@
+.containerSearch{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: rgb(26,17,36);
+
+}
+.title{
+    color: white;
+}
+.myTextArea {
+    color: white;
+}
+::placeholder{
+    color: white;
+}

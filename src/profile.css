@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    align-items: center;
+    align-content: stretch;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    height: 100vh;
+}
+.item {
+    flex-grow: 1;
+    height: 100%;
+}
+.left{
+    background-color: #1a1124;
+}
+.right{
+    background-color: #100a1c;
+}
+img{
+    align-self: center;
+    max-width:50%;
+}
