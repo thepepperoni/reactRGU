@@ -7,11 +7,7 @@ import {
 import SearchPage from "./search";
 import Get from "./get"
 
-const nf = () =>(
-    <div>
-        <h1>not found</h1>
-    </div>
-);
+
 const MainRouter = () => (
 
     <Router>
@@ -27,4 +23,11 @@ const MainRouter = () => (
 const searchConst = ({ match }) => (
    <Get id={match}/>
 );
+
+const nf = () =>(
+    <div>
+        <h1>not found</h1>
+    </div>
+);
+
 export default MainRouter

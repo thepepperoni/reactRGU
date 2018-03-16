@@ -2,18 +2,9 @@ import React from 'react';
 //import {Tabs, Tab} from 'material-ui/Tabs';
 //import SwipeableViews from 'react-swipeable-views';
 import "./profile.css"
+import ScrollButton from './scroll-button';
+import ExtendedProfile from "./profile-extended";
 
-const styles = {
-    headline: {
-        fontSize: 24,
-        paddingTop: 16,
-        marginBottom: 12,
-        fontWeight: 400,
-    },
-    slide: {
-        padding: 10,
-    },
-};
 
 export default class ProfileTabs extends React.Component {
 
@@ -35,19 +26,22 @@ export default class ProfileTabs extends React.Component {
     }
     render() {
         return (
-            <div >
+            <div>
+
+                <ScrollButton height={window.innerHeight} />
+
                 <div className="container red">
-                    <div className="item left">
-                        <h1>TEST</h1>
+                    <div className="item left ">
+                        <h1 className="username">{this.state.data.attributes.name}</h1>
+                        <h2><p className="textColor inline">14562</p><p className="inline username"> division</p></h2>
+                        <h3>Title 3</h3>
                     </div>
                     <div className="item right">
                         <img src={require("./images/rukan.png")}/>
                     </div>
                 </div>
 
-                <div className="container">
-                    <h1>test</h1>
-                </div>
+                <ExtendedProfile/>
             </div>
 
 

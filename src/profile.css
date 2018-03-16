@@ -6,18 +6,42 @@
     justify-content: center;
     flex-direction: row;
     height: 100vh;
+    position:relative;
+}
+.textColor{
+    color:#F8A231;
+
+}
+.username{
+    color: white;
+}
+.winratebar{
+    color: #635176;
 }
 .item {
     flex-grow: 1;
     height: 100%;
 }
 .left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width:50%;
     background-color: #1a1124;
 }
 .right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width:50%;
     background-color: #100a1c;
 }
 img{
     align-self: center;
     max-width:50%;
 }
+.inline{
+    display:inline;
+}
+
