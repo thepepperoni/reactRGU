@@ -2,7 +2,8 @@ import React from 'react'
 import './profile-extended.css'
 import {Tabs, Tab} from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
-
+import ActionAndroid from 'material-ui/svg-icons/action/android';
+import Avatar from 'material-ui/Avatar';
 const styles = {
     headline: {
         fontSize: 24,
@@ -15,7 +16,17 @@ const styles = {
     },
     test:{
         width: 200,
+    },
+    tabcolor:{
+        backgroundColor:"#1a1124",
+    },
+    inkBar:{
+        backgroundColor:"#f6a031"
+    },
+    avatar:{
+        margin:5,
     }
+
 };
 
 export default class ExtendedProfile extends React.Component {
@@ -33,14 +44,23 @@ export default class ExtendedProfile extends React.Component {
     render(){
         return(
             <div className="tabcontainer">
+                <div className="usernameBar">
+                    <Avatar
+                        className="inline"
+                        style={styles.avatar}
+                        icon={<ActionAndroid />}
+                        size={30}/>
+                    <h1 className="usernameExtended inline">Username</h1>
+                </div>
                 <Tabs
                     onChange={this.handleChange}
                     value={this.state.slideIndex}
-                    //tabItemContainerStyle={styles.test}
+                    inkBarStyle={styles.inkBar}
+                    tabItemContainerStyle={styles.tabcolor}
                 >
-                    <Tab label="Tab One" value={0} />
-                    <Tab label="Tab Two" value={1} />
-                    <Tab label="Tab Three" value={2} />
+                    <Tab label="Solo" value={0} />
+                    <Tab label="Teams" value={1} />
+                    <Tab label="Champions" value={2} />
                 </Tabs>
                 <SwipeableViews
                     index={this.state.slideIndex}

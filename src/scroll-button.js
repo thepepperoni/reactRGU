@@ -2,8 +2,8 @@ import './scroll-button.css'
 import React from 'react';
 import {animateScroll as scroll} from 'react-scroll'
 import RaisedButton from 'material-ui/RaisedButton';
-import HardwareArrowDown from 'material-ui/svg-icons/hardware/keyboard-arrow-down';
-import {fullBlack} from 'material-ui/styles/colors';
+//import HardwareArrowDown from 'material-ui/svg-icons/hardware/keyboard-arrow-down';
+//import {fullBlack} from 'material-ui/styles/colors';
 
 export default class ScrollButton extends React.Component {
 
@@ -24,9 +24,10 @@ export default class ScrollButton extends React.Component {
     }
     render(){
         return (
-          <div className="center">
-              <RaisedButton  backgroundColor="#F6A031" className="showMore" icon={<HardwareArrowDown color={fullBlack}/>}onClick={this.handleClick}/>
+          <div >
+              <RaisedButton  backgroundColor="#F6A031"  label="More Stats" fullWidth={true}  onClick={this.handleClick}/>
           </div>
         );
     }
 }
+//              <RaisedButton  backgroundColor="#F6A031" className="showMore" icon={<HardwareArrowDown color={fullBlack}/>}onClick={this.handleClick}/>

@@ -1,8 +1,24 @@
 .tabcontainer{
-
+    background-color:#100a1c;
+    color:white;
     height: 100vh;
 }
 
 .test{
     width: 25vw;
+}
+.tabs {
+    background-color: #1a1124;
+}
+.usernameExtended{
+    margin: 0;
+    background-color: #1a1124;
+}
+.inline{
+    display:inline;
+}
+.usernameBar{
+    display: flex;
+    background-color: #1a1124;
+
 }

@@ -14,6 +14,15 @@
 }
 .username{
     color: white;
+    font-size: 4.5em;
+}
+.statTitle{
+    color: white;
+    font-size:1.5em;
+}
+.statNumber{
+    color: #F8A231;
+    font-size:3em;
 }
 .winratebar{
     color: #635176;
@@ -29,6 +38,7 @@
     align-items: center;
     max-width:50%;
     background-color: #1a1124;
+
 }
 .right{
     display: flex;
@@ -43,5 +53,12 @@ img{
 }
 .inline{
     display:inline;
+}
+
+.leftContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
 }
 

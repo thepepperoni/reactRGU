@@ -16,11 +16,6 @@ export default class ProfileTabs extends React.Component {
         };
     }
 
-    handleChange = (value) => {
-        this.setState({
-            slideIndex: value,
-        });
-    };
     componentDidMount(){
         console.log(this.state.id);
     }
@@ -28,13 +23,16 @@ export default class ProfileTabs extends React.Component {
         return (
             <div>
 
-                <ScrollButton height={window.innerHeight} />
 
                 <div className="container red">
                     <div className="item left ">
-                        <h1 className="username">{this.state.data.attributes.name}</h1>
-                        <h2><p className="textColor inline">14562</p><p className="inline username"> division</p></h2>
-                        <h3>Title 3</h3>
+                        <div className="leftContent">
+                            <h1 className="username">{this.state.data.attributes.name}</h1>
+                            <h2><p className="statNumber inline">14562</p><p className="inline statTitle"> division rating</p></h2>
+                            <h2><p className="statNumber inline">35</p><p className="inline statTitle"> Global Overall Position</p></h2>
+                            <h2><p className="statNumber inline">1256</p><p className="inline statTitle"> Games Won</p></h2>
+                            <ScrollButton height={window.innerHeight} />
+                        </div>
                     </div>
                     <div className="item right">
                         <img src={require("./images/rukan.png")}/>
