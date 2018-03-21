@@ -2,7 +2,7 @@ import React from 'react';
 import './get.css';
 import './search.css';
 import CircularProgress from 'material-ui/CircularProgress';
-import ProfileTabs from "./profile";
+import ProfileTabs from "./profile/profile";
 class Get extends React.Component{
     constructor(props){
         super(props);

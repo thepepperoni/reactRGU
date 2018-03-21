@@ -25,9 +25,8 @@ export default class ScrollButton extends React.Component {
     render(){
         return (
           <div >
-              <RaisedButton  backgroundColor="#F6A031"  label="More Stats" fullWidth={true}  onClick={this.handleClick}/>
+              <RaisedButton  backgroundColor="#F6A031"   fullWidth={true}  onClick={this.handleClick}>More Stats</RaisedButton>
           </div>
         );
     }
 }
-//              <RaisedButton  backgroundColor="#F6A031" className="showMore" icon={<HardwareArrowDown color={fullBlack}/>}onClick={this.handleClick}/>

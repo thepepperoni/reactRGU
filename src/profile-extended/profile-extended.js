@@ -4,6 +4,9 @@ import {Tabs, Tab} from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
 import ActionAndroid from 'material-ui/svg-icons/action/android';
 import Avatar from 'material-ui/Avatar';
+import ExtendedProfileSolo from "../profile-extended-solo/profile-extended-solo";
+import ExtendedProfileTeam from "../profile-extended-teams/profile-extended-team";
+import ExtendedProfileChampions from "../profile-extended-champions/profile-extended-champions";
 const styles = {
     headline: {
         fontSize: 24,
@@ -21,7 +24,7 @@ const styles = {
         backgroundColor:"#1a1124",
     },
     inkBar:{
-        backgroundColor:"#f6a031"
+        backgroundColor:"#f6a031",
     },
     avatar:{
         margin:5,
@@ -67,14 +70,14 @@ export default class ExtendedProfile extends React.Component {
                     onChangeIndex={this.handleChange}
                 >
                     <div>
-                        <h2 style={styles.headline}>Tabs with slide effect</h2>
-                        Swipe to see the next slide.<br />
+                        <ExtendedProfileSolo/>
+                        <br />
                     </div>
-                    <div style={styles.slide}>
-                        slide n°2
+                    <div>
+                        <ExtendedProfileTeam/>
                     </div>
-                    <div style={styles.slide}>
-                        slide n°3
+                    <div>
+                        <ExtendedProfileChampions/>
                     </div>
                 </SwipeableViews>
             </div>

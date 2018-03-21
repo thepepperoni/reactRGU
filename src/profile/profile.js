@@ -2,8 +2,8 @@ import React from 'react';
 //import {Tabs, Tab} from 'material-ui/Tabs';
 //import SwipeableViews from 'react-swipeable-views';
 import "./profile.css"
-import ScrollButton from './scroll-button';
-import ExtendedProfile from "./profile-extended";
+import ScrollButton from '../scroll-button';
+import ExtendedProfile from "../profile-extended/profile-extended";
 
 
 export default class ProfileTabs extends React.Component {
@@ -35,7 +35,7 @@ export default class ProfileTabs extends React.Component {
                         </div>
                     </div>
                     <div className="item right">
-                        <img src={require("./images/rukan.png")}/>
+                        <img src={require("../images/rukan.png")} alt="champion"/>
                     </div>
                 </div>
 
@@ -46,30 +46,3 @@ export default class ProfileTabs extends React.Component {
         );
     }
 }
-/*
-  <div>
-                <h1>{this.state.data.attributes.name}</h1>
-                <Tabs
-                    onChange={this.handleChange}
-                    value={this.state.slideIndex}
-                >
-                    <Tab label="Profile" value={0} />
-                    <Tab label="Champions" value={1} />
-                    <Tab label="Teams" value={2} />
-                </Tabs>
-                <SwipeableViews
-                    index={this.state.slideIndex}
-                    onChangeIndex={this.handleChange}
-                >
-                    <div>
-                        <h3 className="inline"> Global w/l: <p className="win inline">{this.state.data.attributes.stats[2]}</p><p className="inline">/</p><p className="loss inline">{this.state.data.attributes.stats[3]}</p></h3>
-                    </div>
-                    <div style={styles.slide}>
-                        Champions
-                    </div>
-                    <div style={styles.slide}>
-                        Teams
-                    </div>
-                </SwipeableViews>
-            </div>
- */
