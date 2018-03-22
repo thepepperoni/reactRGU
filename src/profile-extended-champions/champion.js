@@ -82,7 +82,7 @@ function ShowGraphic() {
             }}
         />
         <VictoryLine
-            animate={{ duration: 2000, easing: "linear" }}
+            animate={{ duration: 100, easing: "linear" }}
             style={{
                 data: { stroke: "#f6a031" },
 

@@ -14,6 +14,7 @@ function Teams(props) {
     const content = props.teams.map((team) =>
         <div key={team.id} className="team-card">
             <p>{team.league}</p>
+            <img src="http://via.placeholder.com/50x50" alt="champ icon"/>
             <h3>{team.teamName}</h3>
             <p>{team.teamDivison}</p>
         </div>
