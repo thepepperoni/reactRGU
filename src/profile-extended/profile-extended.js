@@ -1,58 +1,58 @@
-import React from 'react'
-import './profile-extended.css'
-import {Tabs, Tab} from 'material-ui/Tabs';
+import React from 'react';
+import './profile-extended.css';
+import { Tabs, Tab } from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
 import ActionAndroid from 'material-ui/svg-icons/action/android';
 import Avatar from 'material-ui/Avatar';
-import ExtendedProfileSolo from "../profile-extended-solo/profile-extended-solo";
-import ExtendedProfileTeam from "../profile-extended-teams/profile-extended-team";
-import ExtendedProfileChampions from "../profile-extended-champions/profile-extended-champions";
+import ExtendedProfileSolo from '../profile-extended-solo/profile-extended-solo';
+import ExtendedProfileTeam from '../profile-extended-teams/profile-extended-team';
+import ExtendedProfileChampions from '../profile-extended-champions/profile-extended-champions';
 const styles = {
     headline: {
         fontSize: 24,
         paddingTop: 16,
         marginBottom: 12,
-        fontWeight: 400,
+        fontWeight: 400
     },
     slide: {
-        padding: 10,
+        padding: 10
     },
-    test:{
-        width: 200,
+    test: {
+        width: 200
     },
-    tabcolor:{
-        backgroundColor:"#1a1124",
+    tabcolor: {
+        backgroundColor: '#1a1124'
     },
-    inkBar:{
-        backgroundColor:"#f6a031",
+    inkBar: {
+        backgroundColor: '#f6a031'
     },
-    avatar:{
-        margin:5,
+    avatar: {
+        margin: 5
     }
-
 };
 
 export default class ExtendedProfile extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            slideIndex: 0,
+            slideIndex: 0
         };
     }
-    handleChange = (value) => {
+    handleChange = value => {
         this.setState({
-            slideIndex: value,
+            slideIndex: value
         });
     };
-    render(){
-        return(
+    render() {
+        return (
             <div className="tabcontainer">
                 <div className="usernameBar">
                     <Avatar
                         className="inline"
                         style={styles.avatar}
                         icon={<ActionAndroid />}
-                        size={30}/>
+                        size={30}
+                    />
                     <h1 className="usernameExtended inline">Username</h1>
                 </div>
                 <Tabs
@@ -70,17 +70,17 @@ export default class ExtendedProfile extends React.Component {
                     onChangeIndex={this.handleChange}
                 >
                     <div>
-                        <ExtendedProfileSolo/>
+                        <ExtendedProfileSolo />
                         <br />
                     </div>
                     <div>
-                        <ExtendedProfileTeam/>
+                        <ExtendedProfileTeam />
                     </div>
                     <div>
-                        <ExtendedProfileChampions/>
+                        <ExtendedProfileChampions />
                     </div>
                 </SwipeableViews>
             </div>
-        )
+        );
     }
 }
