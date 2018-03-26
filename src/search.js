@@ -14,7 +14,17 @@ const styles = {
     },
     button:{
         margin: 12,
+        backgroundColor: "#f5a031",
+        borderRadius:4
+    },
+    hint:{
+        color:"rgba(255,255,255,0.5)",
+        fontSize:"0.9em",
+        fontStyle:"italic",
+        fontWeight:"300"
+
     }
+
 };
  class SearchPage extends React.Component {
 
@@ -44,9 +54,9 @@ const styles = {
                 <div>
                     <form onSubmit={this.submitHandler}>
                         <label>
-                            <TextField inputStyle={styles.white} hintStyle={styles.white} value={this.state.inputValue} hintText="Username to lookup" onChange={evt => this.updateInputValue(evt)} id="user"  />
+                            <TextField inputStyle={styles.white} hintStyle={styles.hint} value={this.state.inputValue} hintText="Search a Battlerite Username" onChange={evt => this.updateInputValue(evt)} id="user"  />
                         </label>
-                        <RaisedButton label="Search" primary={true} style={styles.button} type="submit" />
+                        <RaisedButton buttonStyle={{borderRadius:4,backgroundColor: "#f5a031"}} label="Search" style={styles.button}  type="submit" />
                     </form>
                 </div>
 
