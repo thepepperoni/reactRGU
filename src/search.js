@@ -43,6 +43,7 @@ class SearchPage extends React.Component {
             <div className="containerSearch">
                 <div>
                     <h1 className="title">BattleU</h1>
+                    <img className="logo" scr="" />
                 </div>
                 <div>
                     <form onSubmit={this.submitHandler}>
@@ -61,6 +62,7 @@ class SearchPage extends React.Component {
                                 borderRadius: 4,
                                 backgroundColor: '#f5a031'
                             }}
+                            labelStyle={{ color: '#fff' }}
                             label="Search"
                             style={styles.button}
                             type="submit"
