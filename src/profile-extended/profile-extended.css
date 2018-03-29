@@ -1,24 +1,33 @@
-.tabcontainer{
-    background-color:#100a1c;
-    color:white;
+.tabcontainer {
+    background-color: #100a1c;
+    color: white;
     height: 100vh;
 }
 
-.test{
+.test {
     width: 25vw;
 }
 .tabs {
     background-color: #1a1124;
 }
-.usernameExtended{
+.usernameExtended {
     margin: 0;
     background-color: #1a1124;
 }
-.inline{
-    display:inline;
+.inline {
+    display: inline;
 }
-.usernameBar{
+.usernameBar {
     display: flex;
+    flex-direction: row;
     background-color: #1a1124;
-
+}
+.navBar {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    background-color: #1a1124;
+}
+.push {
+    margin-left: auto;
 }

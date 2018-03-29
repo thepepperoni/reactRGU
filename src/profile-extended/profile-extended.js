@@ -7,6 +7,7 @@ import Avatar from 'material-ui/Avatar';
 import ExtendedProfileSolo from '../profile-extended-solo/profile-extended-solo';
 import ExtendedProfileTeam from '../profile-extended-teams/profile-extended-team';
 import ExtendedProfileChampions from '../profile-extended-champions/profile-extended-champions';
+import FlatButton from 'material-ui/FlatButton';
 const styles = {
     headline: {
         fontSize: 24,
@@ -46,6 +47,18 @@ export default class ExtendedProfile extends React.Component {
     render() {
         return (
             <div className="tabcontainer">
+                <div className="navBar">
+                    <h3>BU</h3>
+                    <h3>LeaderBoards</h3>
+                    <h3>About</h3>
+                    <h3>Contact</h3>
+                    <FlatButton
+                        label="Search"
+                        containerElement="label"
+                        className="push"
+                        style={{ verticalAlign: 'middle', marginLeft: 'auto' }}
+                    />
+                </div>
                 <div className="usernameBar">
                     <Avatar
                         className="inline"
