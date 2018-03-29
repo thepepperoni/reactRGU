@@ -1,32 +1,37 @@
-import './scroll-button.css'
+import './scroll-button.css';
 import React from 'react';
-import {animateScroll as scroll} from 'react-scroll'
+import { animateScroll as scroll } from 'react-scroll';
 import RaisedButton from 'material-ui/RaisedButton';
 //import HardwareArrowDown from 'material-ui/svg-icons/hardware/keyboard-arrow-down';
 //import {fullBlack} from 'material-ui/styles/colors';
 
 export default class ScrollButton extends React.Component {
-
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            height: props.height,
+            height: props.height
         };
         this.handleClick = this.handleClick.bind(this);
         console.log(this.state.height);
-
     }
-    handleClick(){
-        scroll.scrollTo(this.state.height,{
+    handleClick() {
+        scroll.scrollTo(this.state.height, {
             duration: 500,
             delay: 100,
-            smooth: true})
+            smooth: true
+        });
     }
-    render(){
+    render() {
         return (
-          <div >
-              <RaisedButton  backgroundColor="#F6A031"   fullWidth={true}  onClick={this.handleClick}>More Stats</RaisedButton>
-          </div>
+            <div>
+                <RaisedButton
+                    backgroundColor="#F6A031"
+                    fullWidth={true}
+                    onClick={this.handleClick}
+                >
+                    More Stats
+                </RaisedButton>
+            </div>
         );
     }
 }

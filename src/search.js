@@ -36,13 +36,14 @@ class SearchPage extends React.Component {
     submitHandler(event) {
         event.preventDefault();
         this.props.history.push(`results/${this.state.inputValue}`);
+        //<h1 className="title">BattleU</h1>
     }
 
     render() {
         return (
             <div className="containerSearch">
-                <div>
-                    <h1 className="title">BattleU</h1>
+                <div style={{ width: 200 }}>
+                    <embed src={require('./images/Logo SVG.svg')} />
                 </div>
                 <div>
                     <form onSubmit={this.submitHandler}>
@@ -61,6 +62,7 @@ class SearchPage extends React.Component {
                                 borderRadius: 4,
                                 backgroundColor: '#f5a031'
                             }}
+                            labelStyle={{ color: '#fff' }}
                             label="Search"
                             style={styles.button}
                             type="submit"

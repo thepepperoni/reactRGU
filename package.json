@@ -21,8 +21,8 @@
     "src/**/*.{js,jsx,json,css}": [
       "prettier --single-quote --tab-width 4 --write",
       "git add"
-   ]
-   },
+    ]
+  },
   "scripts": {
     "precommit": "lint-staged",
     "start": "react-scripts start",
