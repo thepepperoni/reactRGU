@@ -28,7 +28,10 @@ const styles = {
         backgroundColor: '#f6a031'
     },
     avatar: {
-        margin: 5
+        margin: 5,
+        width: 50,
+        height: 50,
+        opacity: 0.8
     }
 };
 
@@ -47,27 +50,45 @@ export default class ExtendedProfile extends React.Component {
     render() {
         return (
             <div className="tabcontainer">
-                <div className="navBar">
-                    <h3>BU</h3>
-                    <h3>LeaderBoards</h3>
-                    <h3>About</h3>
-                    <h3>Contact</h3>
-                    <FlatButton
-                        label="Search"
-                        containerElement="label"
-                        className="push"
-                        style={{ verticalAlign: 'middle', marginLeft: 'auto' }}
-                    />
+                <div className="navArea">
+                    <div className="navBar">
+                        <embed
+                            className="menuLogo"
+                            style={{
+                                width: 40,
+                                display: 'inline'
+                            }}
+                            src={require('../images/BdotU.svg')}
+                        />
+
+                        <h3 className="navMenu">LEADERBOARDS</h3>
+                        <h3 className="navMenu">ABOUT</h3>
+                        <h3 className="navMenu">CONTACT</h3>
+                        <embed
+                            className="searchIcon"
+                            src={require('../images/ic_search_white_24px.svg')}
+                        />
+                    </div>
                 </div>
-                <div className="usernameBar">
-                    <Avatar
-                        className="inline"
-                        style={styles.avatar}
-                        icon={<ActionAndroid />}
-                        size={30}
-                    />
-                    <h1 className="usernameExtended inline">Username</h1>
+                <div className="userInfoArea">
+                    <div className="wrapperusername" />
+
+                    <div className="usernameBar">
+                        <Avatar
+                            src={require('../images/sampleAvatar.jpg')}
+                            className="inline"
+                            style={styles.avatar}
+                            icon={<ActionAndroid />}
+                            size={30}
+                        />
+                        <h1 className="usernameExtended inline">Gugum</h1>
+                        <div className="userRank">
+                            <span>GLOBAL RANKING</span>
+                            <h5>#35</h5>
+                        </div>
+                    </div>
                 </div>
+
                 <Tabs
                     onChange={this.handleChange}
                     value={this.state.slideIndex}

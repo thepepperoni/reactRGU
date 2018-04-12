@@ -11,8 +11,13 @@
     background-color: #1a1124;
 }
 .usernameExtended {
-    margin: 0;
+    margin-top: auto;
+    margin-bottom: auto;
     background-color: #1a1124;
+    font-family: 'Roboto Light';
+    font-weight: 100;
+    font-size: 36px;
+    margin-left: 0.1em;
 }
 .inline {
     display: inline;
@@ -21,13 +26,118 @@
     display: flex;
     flex-direction: row;
     background-color: #1a1124;
+
+    width: 88%;
+    margin-left: auto;
+    margin-right: auto;
 }
-.navBar {
+.userRank {
+    display: flex;
+    position: relative;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: 0;
+    padding-top: 10px;
+}
+.userRank span {
+    display: flex;
+
+    padding: 0;
+    font-family: 'Roboto Light';
+    font-weight: 500;
+    font-size: 0.8em;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.userRank h5 {
+    margin-left: 3px;
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 0;
+    font-family: 'Roboto Medium';
+    font-weight: 500;
+    font-size: 0.9em;
+    color: #7c5e9c;
+}
+
+.wrapperusername {
+    display: flex;
+    flex-direction: row;
+    background-color: #1a1124;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40%;
+}
+
+.userInfoArea {
+    background-color: #1a1124;
+    height: 16%;
+}
+.navArea {
+    background-color: #1a1124;
     display: flex;
     width: 100%;
     flex-direction: row;
+    height: 5%;
+}
+.navBar {
+    display: flex;
+    width: 88%;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: row;
     background-color: #1a1124;
+    margin-top: 1%;
 }
 .push {
     margin-left: auto;
+}
+
+.navMenu {
+    font-family: 'Roboto Light';
+    font-weight: 500;
+    font-size: 0.65em;
+    margin-left: 40px;
+    margin-top: auto;
+    margin-bottom: auto;
+    color: rgba(255, 255, 255, 0.2);
+    letter-spacing: 1px;
+    transition: 1s;
+    cursor: pointer;
+}
+.navMenu:hover {
+    color: rgba(255, 255, 255, 0.5);
+    transition: 1s;
+}
+.menuLogo {
+    opacity: 0.7;
+    transition: 1s;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.menuLogo:hover {
+    opacity: 1;
+    transition: 1s;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.searchIcon {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    opacity: 0.3;
+    display: flex;
+    margin-left: auto;
+    margin-right: 0;
+    transition: 1s;
+    cursor: pointer;
+}
+.searchIcon:hover {
+    opacity: 1;
+    cursor: pointer;
 }
