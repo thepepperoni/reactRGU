@@ -86,33 +86,52 @@ export default class ProfileTabs extends React.Component {
                             <h1 className="username">
                                 {this.state.data.attributes.name}
                             </h1>
-                            <h2>
-                                <p className="statNumber inline">14562</p>
+                            <h2 className="subTitle">
+                                EA S5 GRAND CHAMPION SOLO{' '}
+                            </h2>
+                            <h2 className="subStat">
+                                <p className="statNumber inline">1456 </p>
                                 <p className="inline statTitle">
                                     {' '}
-                                    division rating
+                                    Division rating
                                 </p>
                             </h2>
-                            <h2>
-                                <p className="statNumber inline">35</p>
+                            <h2 className="subStat">
+                                <p className="statNumber inline">35 </p>
                                 <p className="inline statTitle">
                                     {' '}
                                     Global Overall Position
                                 </p>
                             </h2>
-                            <h2>
-                                <p className="statNumber inline">1256</p>
+                            <h2 className="subStat">
+                                <p className="statNumber inline">1256 </p>
                                 <p className="inline statTitle"> Games Won</p>
+                                <span className="statTotalGames">
+                                    {' '}
+                                    (of 1564 played)
+                                </span>
                             </h2>
+                            <div className="winTotal">
+                                <div className="winPercent">
+                                    {' '}
+                                    <span className="progress" />{' '}
+                                </div>
+                            </div>
                             <ScrollButton height={window.innerHeight} />
                         </div>
                     </div>
                     <div className="item right">
                         <img
+                            className="champion"
                             src={require('../images/rukan.png')}
                             alt="champion"
                         />
+                        <img
+                            className="bgdrop"
+                            src={require('../images/Backdrop.png')}
+                        />
                     </div>
+                    <div className="bottomLine" />
                 </div>
 
                 <ExtendedProfile />

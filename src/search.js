@@ -8,18 +8,56 @@ import './search.css';
 
 const styles = {
     white: {
-        color: white
+        color: white,
+        zIndex: 5
     },
     button: {
         margin: 12,
         backgroundColor: '#f5a031',
-        borderRadius: 4
+        borderRadius: 4,
+        zIndex: 5
     },
     hint: {
-        color: 'rgba(255,255,255,0.5)',
+        color: 'rgba(255,255,255,0.3)',
         fontSize: '0.9em',
         fontStyle: 'italic',
-        fontWeight: '300'
+        fontWeight: '300',
+        zIndex: 5
+    },
+    underlay: {
+        zIndex: 0,
+        width: '70%',
+        position: 'absolute',
+        margin: 'auto',
+        bottom: 20
+    },
+    war: {
+        display: 'block',
+
+        marginLeft: 'auto',
+        marginRight: 'auto'
+        //borderColor: "red",
+        //borderStyle: "solid"
+    },
+    subhead: {
+        margin: 'auto',
+        width: '100%',
+        color: '#fff',
+        fontWeight: '600',
+        fontFamily: 'Roboto',
+        fontSize: '3em',
+        top: 20,
+        display: 'none'
+    },
+    mark: {
+        //borderColor: "blue",
+        //borderStyle: "solid"
+    },
+    underline: {
+        borderColor: '#f5a031'
+    },
+    underlineFocus: {
+        borderColor: '#f5a031'
     }
 };
 class SearchPage extends React.Component {
@@ -41,16 +79,38 @@ class SearchPage extends React.Component {
 
     render() {
         return (
-            <div className="containerSearch">
-                <div style={{ width: 200 }}>
-                    <embed src={require('./images/Logo SVG.svg')} />
+            <div className="containerSearch" style={styles.mark}>
+                <div
+                    style={{
+                        width: 1000,
+                        zIndex: 5,
+                        top: '30%',
+                        position: 'absolute'
+                    }}
+                >
+                    <span style={styles.subhead}>
+                        {' '}
+                        We provide Battlerite player statistics
+                    </span>
+                    <embed
+                        style={{ width: 200, display: 'block', margin: 'auto' }}
+                        src={require('./images/Logo SVG.svg')}
+                    />
                 </div>
-                <div>
+                <div style={styles.underlay}>
+                    <img
+                        style={styles.war}
+                        src={require('./images/transpr.png')}
+                    />
+                </div>
+                <div style={styles.mark}>
                     <form onSubmit={this.submitHandler}>
                         <label>
                             <TextField
                                 inputStyle={styles.white}
                                 hintStyle={styles.hint}
+                                underlineStyle={styles.underline}
+                                underlineFocusStyle={styles.underlineFocus}
                                 value={this.state.inputValue}
                                 hintText="Search a Battlerite Username"
                                 onChange={evt => this.updateInputValue(evt)}
@@ -60,7 +120,8 @@ class SearchPage extends React.Component {
                         <RaisedButton
                             buttonStyle={{
                                 borderRadius: 4,
-                                backgroundColor: '#f5a031'
+                                backgroundColor: '#f5a031',
+                                width: '120%'
                             }}
                             labelStyle={{ color: '#fff' }}
                             label="Search"
