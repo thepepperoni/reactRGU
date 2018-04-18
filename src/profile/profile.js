@@ -40,6 +40,14 @@ export default class ProfileTabs extends React.Component {
         return (
             <div>
                 <div className="container red">
+                    <embed
+                        className="menuLogoMain"
+                        style={{
+                            width: 40,
+                            display: 'inline'
+                        }}
+                        src={require('../images/BdotU.svg')}
+                    />
                     <div
                         style={{
                             right: '5%',

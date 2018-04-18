@@ -22,7 +22,7 @@ const styles = {
         width: 200
     },
     tabcolor: {
-        backgroundColor: '#1a1124'
+        backgroundColor: '#100A1C'
     },
     inkBar: {
         backgroundColor: '#f6a031'
@@ -88,6 +88,7 @@ export default class ExtendedProfile extends React.Component {
                         </div>
                     </div>
                 </div>
+                <div className="wrapperusername2" />
 
                 <Tabs
                     onChange={this.handleChange}

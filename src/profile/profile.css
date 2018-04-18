@@ -1,3 +1,5 @@
+.body {
+}
 .container {
     display: flex;
     align-items: center;
@@ -7,6 +9,7 @@
     flex-direction: row;
     height: 100vh;
     position: relative;
+    background-color: #100a1c;
 }
 .textColor {
     color: #f8a231;
@@ -150,4 +153,14 @@ h2 {
     width: 100%;
     position: absolute;
     bottom: 0px;
+}
+
+.menuLogoMain {
+    opacity: 0.7;
+    transition: 1s;
+    cursor: pointer;
+    z-index: 100;
+    position: absolute;
+    top: 20px;
+    left: 5%;
 }
