@@ -2,6 +2,7 @@ import React from 'react';
 import './profile-extended-team.css';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import Avatar from 'material-ui/Avatar';
 
 const teams = [
     { id: 1, teamName: 'Team1', teamDivison: 'Silver', league: '2v2' },
@@ -25,16 +26,78 @@ const styles = {
         fontSize: '0.7em',
         marginRight: '4px',
         opacity: '0.3'
+    },
+    teamTitle: {
+        fontSize: '18px',
+        fontFamily: 'Roboto Medium',
+        fontWeight: 200,
+        marginTop: '5px',
+        marginBottom: 0
+    },
+    avatar: {
+        margin: 5,
+        width: 70,
+        height: 70,
+        opacity: 0.8
+    },
+    division: {
+        marginTop: '0',
+        marginBottom: '5px',
+        fontFamily: 'Roboto Medium',
+        fontSize: '0.7em',
+        textTransform: 'uppercase',
+        fontWeight: 100,
+        color: '#f8a231'
     }
 };
 
 function Teams(props) {
     const content = props.teams.map(team => (
         <div key={team.id} className="team-card">
-            <p>{team.league}</p>
-            <img src="http://via.placeholder.com/50x50" alt="champ icon" />
-            <h3>{team.teamName}</h3>
-            <p>{team.teamDivison}</p>
+            <p className="teamHeader">TEAM {team.league}</p>
+            <Avatar
+                src={require('../images/Tournament_Winner_01.png')}
+                className="inline"
+                style={styles.avatar}
+                size={30}
+            />
+            <h3 style={styles.teamTitle}>{team.teamName}</h3>
+            <p style={styles.division}>{team.teamDivison}</p>
+            <div
+                style={{
+                    marginTop: '15px',
+                    flexDirection: 'row',
+                    display: 'flex'
+                }}
+            >
+                <Avatar
+                    src={require('../images/6.png')}
+                    backgroundColor={'none'}
+                    style={{
+                        marginTop: 'auto',
+                        marginBottom: 'auto',
+                        display: 'flex',
+                        width: 30,
+                        height: 30
+                    }}
+                    size={25}
+                />
+                <p
+                    style={{
+                        display: 'flex',
+                        marginTop: '-2px',
+                        marginBottom: 'auto',
+                        fontFamily: 'Roboto Medium',
+                        fontSize: '2vw',
+                        fontWeight: '400',
+                        letterSpacing: '1px',
+                        marginLeft: '4px'
+                    }}
+                >
+                    {' '}
+                    {Math.floor(Math.random() * (4351 - 34) + 34)}{' '}
+                </p>
+            </div>
         </div>
     ));
     return <div className="teams-container">{content}</div>;
@@ -90,9 +153,8 @@ export default class ExtendedProfileTeam extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="second-row-teams">
-                    <Teams teams={teams} />
-                </div>
+
+                <Teams classname="teamArea" teams={teams} />
             </div>
         );
     }
