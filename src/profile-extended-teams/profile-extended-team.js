@@ -84,7 +84,7 @@ function TeamDivision(props) {
 function Loader() {
     return (
         <div style={{ textAlign: 'center' }}>
-            <CircularProgress size={60} thickness={7} />
+            <CircularProgress size={60} thickness={7} color={'#f8a231'} />
         </div>
     );
 }
@@ -131,11 +131,11 @@ function Teams(props) {
                 <p
                     style={{
                         display: 'flex',
-                        marginTop: '-2px',
+                        marginTop: '2px',
                         marginBottom: 'auto',
                         fontFamily: 'Roboto',
-                        fontSize: '2vw',
-                        fontWeight: '400',
+                        fontSize: '1.6em',
+                        fontWeight: '500',
                         letterSpacing: '1px',
                         marginLeft: '4px'
                     }}

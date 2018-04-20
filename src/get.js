@@ -57,7 +57,11 @@ class Get extends React.Component {
         } else if (!isLoaded) {
             return (
                 <div className="container">
-                    <CircularProgress size={60} thickness={7} />
+                    <CircularProgress
+                        size={60}
+                        thickness={7}
+                        color={'#f8a231'}
+                    />
                 </div>
             );
         } else {

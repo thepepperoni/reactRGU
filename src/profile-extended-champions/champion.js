@@ -5,7 +5,7 @@ import NavigationExpandMore from 'material-ui/svg-icons/navigation/expand-more';
 import IconButton from 'material-ui/IconButton';
 import './profile-extended-champions.css';
 import { VictoryLine, VictoryChart, VictoryAxis } from 'victory';
-
+import Avatar from 'material-ui/Avatar';
 const data = [
     { date: '15mar', percentage: 25 },
     { date: '16mar', percentage: 35 },
@@ -33,19 +33,26 @@ export default class Champion extends React.Component {
     render() {
         return (
             <div className="champion-container">
-                <div className="champion">
+                <div className="champion_data">
                     <p style={{ margin: 10 }}>#{this.state.id}</p>
                     <p style={{ width: 100, textAlign: 'center' }}>
                         {this.state.games}
                     </p>
-                    <img
-                        src="http://via.placeholder.com/50x50"
-                        alt="champ icon"
+
+                    <Avatar
+                        size={40}
+                        src={require('../images/placement.png')}
                     />
                     <LinearProgress
                         mode="determinate"
                         value={this.state.winrate}
-                        style={{ height: 10, margin: 5 }}
+                        style={{
+                            height: 10,
+                            margin: 5,
+                            backgroundColor: '#100a1c',
+                            borderRadius: '6px'
+                        }}
+                        color={'#f8a231'}
                     />
                     <p>{this.state.winrate}%</p>
                     <IconButton
@@ -64,12 +71,6 @@ export default class Champion extends React.Component {
 function ShowGraphic() {
     return (
         <div className="extra-stats">
-            <img
-                src={require('../images/rukan.png')}
-                alt="champion"
-                style={{ maxWidth: 200 }}
-            />
-
             <VictoryChart width={1200}>
                 <VictoryAxis
                     dependentAxis
