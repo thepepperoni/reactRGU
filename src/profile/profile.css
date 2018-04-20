@@ -1,4 +1,6 @@
-.container{
+.body {
+}
+.container {
     display: flex;
     align-items: center;
     align-content: stretch;
@@ -6,59 +8,159 @@
     justify-content: center;
     flex-direction: row;
     height: 100vh;
-    position:relative;
+    position: relative;
+    background-color: #100a1c;
 }
-.textColor{
-    color:#F8A231;
-
+.textColor {
+    color: #f8a231;
 }
-.username{
+.username {
     color: white;
     font-size: 4em;
+    letter-spacing: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    margin-top: 0;
+    margin-bottom: 3px;
+    padding-left: -3px;
 }
-.statTitle{
+.statTitle {
     color: white;
-    font-size:1em;
+    font-size: 0.7em;
+    font-weight: 200;
+    letter-spacing: 0;
+    font-family: 'Roboto Medium', sans-serif;
 }
-.statNumber{
-    color: #F8A231;
-    font-size:1.5em;
+.statNumber {
+    color: #f8a231;
+    font-size: 1.4em;
+    font-weight: 800;
+    font-family: 'Source Sans Pro', sans-serif;
 }
-.winratebar{
+.winratebar {
     color: #635176;
 }
 .item {
     flex-grow: 1;
     height: 100%;
 }
-.left{
+.left {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width:50%;
+    max-width: 50%;
     background-color: #1a1124;
-
 }
-.right{
+.right {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width:50%;
+    max-width: 50%;
     background-color: #100a1c;
 }
-img{
-    align-self: center;
-    max-width:50%;
+
+.inline {
+    display: inline;
 }
-.inline{
-    display:inline;
+.champion {
+    padding-top: 12%;
+    align-self: center;
+    max-width: 55%;
+    z-index: 5;
+}
+.bgdrop {
+    position: absolute;
+    z-index: 0;
+    max-width: 24%;
+    padding-top: 5%;
 }
 
-.leftContent{
+.leftContent {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: stretch;
+    padding-top: 0;
+}
+.statTotalGames {
+    color: rgba(255, 255, 255, 0.25);
+    font-size: 0.7em;
+    font-weight: 500;
+    letter-spacing: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
+.subTitle {
+    margin: 0em;
+    font-size: 0.7em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 0px;
+    margin-bottom: 2em;
+}
+
+h2 {
+    padding-left: 5px;
+    margin-bottom: 0;
+    margin-top: 0.2em;
+}
+.winTotal {
+    width: 100%;
+    height: 1.8em;
+    display: flex;
+    background-color: #100a1c;
+    margin-bottom: 1.2em;
+    margin-top: 1em;
+    border-radius: 4px;
+}
+.winPercent {
+    width: 77%;
+    height: 100%;
+    display: flex;
+
+    border-radius: 4px;
+}
+.progress {
+    height: 100%;
+    border-radius: 4px;
+    background-color: #635176;
+    -webkit-animation: progressBar 1.5s cubic-bezier(1, 0.25, 0.5, 1);
+    -webkit-animation-fill-mode: both;
+    -moz-animation: progressBar 1.5s cubic-bezier(1, 0.25, 0.5, 1);
+    -moz-animation-fill-mode: both;
+}
+@-webkit-keyframes progressBar {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@-moz-keyframes progressBar {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+.bottomLine {
+    background-color: #f8a231;
+    height: 1%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.menuLogoMain {
+    opacity: 0.7;
+    transition: 1s;
+    cursor: pointer;
+    z-index: 100;
+    position: absolute;
+    top: 20px;
+    left: 5%;
+}

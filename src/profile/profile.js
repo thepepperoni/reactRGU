@@ -3,7 +3,6 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import MoreHorizIcon from 'material-ui/svg-icons/navigation/more-horiz';
-
 //import SwipeableViews from 'react-swipeable-views';
 import './profile.css';
 import ScrollButton from '../scroll-button';
@@ -19,7 +18,7 @@ export default class ProfileTabs extends React.Component {
     }
 
     componentDidMount() {
-        //console.log(this.state.id);
+        console.log('userid in profile: ' + this.state.data.id);
     }
     //function(event: object, child: object) => void
     handleMenuItemClick = event => {
@@ -40,6 +39,14 @@ export default class ProfileTabs extends React.Component {
         return (
             <div>
                 <div className="container red">
+                    <embed
+                        className="menuLogoMain"
+                        style={{
+                            width: 40,
+                            display: 'inline'
+                        }}
+                        src={require('../images/BdotU.svg')}
+                    />
                     <div
                         style={{
                             right: '5%',
@@ -86,36 +93,55 @@ export default class ProfileTabs extends React.Component {
                             <h1 className="username">
                                 {this.state.data.attributes.name}
                             </h1>
-                            <h2>
-                                <p className="statNumber inline">14562</p>
+                            <h2 className="subTitle">
+                                EA S5 GRAND CHAMPION SOLO{' '}
+                            </h2>
+                            <h2 className="subStat">
+                                <p className="statNumber inline">1456 </p>
                                 <p className="inline statTitle">
                                     {' '}
-                                    division rating
+                                    Division rating
                                 </p>
                             </h2>
-                            <h2>
-                                <p className="statNumber inline">35</p>
+                            <h2 className="subStat">
+                                <p className="statNumber inline">35 </p>
                                 <p className="inline statTitle">
                                     {' '}
                                     Global Overall Position
                                 </p>
                             </h2>
-                            <h2>
-                                <p className="statNumber inline">1256</p>
+                            <h2 className="subStat">
+                                <p className="statNumber inline">1256 </p>
                                 <p className="inline statTitle"> Games Won</p>
+                                <span className="statTotalGames">
+                                    {' '}
+                                    (of 1564 played)
+                                </span>
                             </h2>
+                            <div className="winTotal">
+                                <div className="winPercent">
+                                    {' '}
+                                    <span className="progress" />{' '}
+                                </div>
+                            </div>
                             <ScrollButton height={window.innerHeight} />
                         </div>
                     </div>
                     <div className="item right">
                         <img
+                            className="champion"
                             src={require('../images/rukan.png')}
                             alt="champion"
                         />
+                        <img
+                            className="bgdrop"
+                            src={require('../images/Backdrop.png')}
+                        />
                     </div>
+                    <div className="bottomLine" />
                 </div>
 
-                <ExtendedProfile />
+                <ExtendedProfile userId={this.state.data.id} />
             </div>
         );
     }

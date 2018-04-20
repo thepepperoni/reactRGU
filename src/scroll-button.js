@@ -4,7 +4,12 @@ import { animateScroll as scroll } from 'react-scroll';
 import RaisedButton from 'material-ui/RaisedButton';
 //import HardwareArrowDown from 'material-ui/svg-icons/hardware/keyboard-arrow-down';
 //import {fullBlack} from 'material-ui/styles/colors';
-
+const styles = {
+    button: {
+        borderRadius: 4,
+        height: 45
+    }
+};
 export default class ScrollButton extends React.Component {
     constructor(props) {
         super(props);
@@ -25,12 +30,14 @@ export default class ScrollButton extends React.Component {
         return (
             <div>
                 <RaisedButton
+                    style={{ borderRadius: '5px' }}
                     backgroundColor="#F6A031"
+                    labelColor="#FFFFFF"
+                    label={'Show More'}
                     fullWidth={true}
                     onClick={this.handleClick}
-                >
-                    More Stats
-                </RaisedButton>
+                    buttonStyle={styles.button}
+                />
             </div>
         );
     }
