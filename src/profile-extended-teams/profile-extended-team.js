@@ -8,7 +8,7 @@ import CircularProgress from 'material-ui/CircularProgress';
 
 const styles = {
     FirstRowTitle: {
-        fontFamily: 'Roboto Medium',
+        fontFamily: 'Roboto',
         fontSize: '1.125em'
     },
     selector: {
@@ -18,14 +18,14 @@ const styles = {
     },
     refresh: {
         margin: 'auto',
-        fontFamily: 'Roboto Light',
+        fontFamily: 'Roboto',
         fontSize: '0.7em',
         marginRight: '4px',
         opacity: '0.3'
     },
     teamTitle: {
         fontSize: '18px',
-        fontFamily: 'Roboto Medium',
+        fontFamily: 'Roboto',
         fontWeight: 200,
         marginTop: '5px',
         marginBottom: 0
@@ -39,13 +39,47 @@ const styles = {
     division: {
         marginTop: '0',
         marginBottom: '5px',
-        fontFamily: 'Roboto Medium',
+        fontFamily: 'Roboto',
         fontSize: '0.7em',
         textTransform: 'uppercase',
         fontWeight: 100,
         color: '#f8a231'
     }
 };
+
+function TeamType(props) {
+    switch (props.size) {
+        case 1:
+            return 'SOLO';
+
+        case 2:
+            return '2V2';
+        case 3:
+            return '3V3';
+    }
+}
+
+function TeamDivision(props) {
+    switch (props.division) {
+        case 0:
+            return 'Placement';
+        case 1:
+            return 'Bronze';
+
+        case 2:
+            return 'Silver';
+        case 3:
+            return 'Gold';
+        case 4:
+            return 'Platinum';
+        case 5:
+            return 'Diamond';
+        case 6:
+            return 'Champion League';
+        case 7:
+            return 'Grand Champion';
+    }
+}
 
 function Loader() {
     return (
@@ -59,19 +93,20 @@ function Teams(props) {
     const content = props.teams.map(team => (
         <div key={team.id} className="team-card">
             <p className="teamHeader">
-                {' '}
-                {team.attributes.name === '' ? 'TBD' : team.attributes.name}
+                <TeamType size={team.attributes.stats.members.length} />
             </p>
             <Avatar
-                src={require('../images/' +
-                    (team.attributes.stats.league + 1) +
-                    '.png')}
+                src={require('../images/placement.png')}
                 className="inline"
                 style={styles.avatar}
                 size={30}
             />
-            <h3 style={styles.teamTitle}>{team.teamName}</h3>
-            <p style={styles.division}>{team.teamDivison}</p>
+            <h3 style={styles.teamTitle}>
+                {team.attributes.name === '' ? 'TBD' : team.attributes.name}
+            </h3>
+            <p style={styles.division}>
+                <TeamDivision division={team.attributes.stats.league + 1} />
+            </p>
             <div
                 style={{
                     marginTop: '15px',
@@ -98,7 +133,7 @@ function Teams(props) {
                         display: 'flex',
                         marginTop: '-2px',
                         marginBottom: 'auto',
-                        fontFamily: 'Roboto Medium',
+                        fontFamily: 'Roboto',
                         fontSize: '2vw',
                         fontWeight: '400',
                         letterSpacing: '1px',
