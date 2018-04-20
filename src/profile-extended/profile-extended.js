@@ -39,7 +39,8 @@ export default class ExtendedProfile extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            slideIndex: 0
+            slideIndex: 0,
+            userId: props.userId
         };
     }
     handleChange = value => {
@@ -47,6 +48,7 @@ export default class ExtendedProfile extends React.Component {
             slideIndex: value
         });
     };
+
     render() {
         return (
             <div className="tabcontainer">
@@ -109,7 +111,7 @@ export default class ExtendedProfile extends React.Component {
                         <br />
                     </div>
                     <div>
-                        <ExtendedProfileTeam />
+                        <ExtendedProfileTeam userId={this.state.userId} />
                     </div>
                     <div>
                         <ExtendedProfileChampions />
