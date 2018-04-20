@@ -72,9 +72,8 @@ export default class ExtendedProfile extends React.Component {
                         />
                     </div>
                 </div>
+                <div className="wrapperusername" />
                 <div className="userInfoArea">
-                    <div className="wrapperusername" />
-
                     <div className="usernameBar">
                         <Avatar
                             src={require('../images/sampleAvatar.jpg')}
