@@ -20,13 +20,15 @@ const data = [
 const styles = {
     refresh: {
         margin: 'auto',
-        fontFamily: 'Roboto Light',
+        fontFamily: 'Roboto',
+        fontWeight: 100,
         fontSize: '0.7em',
         marginRight: '4px',
         opacity: '0.3'
     },
     FirstRowTitle: {
-        fontFamily: 'Roboto Medium',
+        fontFamily: 'Roboto',
+        fontWeight: 300,
         fontSize: '1.125em'
     },
     selector: {
@@ -40,12 +42,14 @@ const styles = {
     },
     statTitle: {
         fontSize: '18px',
-        fontFamily: 'Roboto Medium',
+        fontFamily: 'Roboto',
+        fontWeight: 300,
         margin: 0
     },
     statNumber_blue: {
         fontSize: '10px',
-        fontFamily: 'Roboto Medium',
+        fontFamily: 'Roboto',
+        fontWeight: 300,
         letterSpacing: '0.5px',
         textTransform: 'uppercase',
         color: '#635176',
@@ -53,7 +57,8 @@ const styles = {
     },
     statNumber_orange: {
         fontSize: '10px',
-        fontFamily: 'Roboto Light',
+        fontFamily: 'Roboto',
+        fontWeight: 100,
         letterSpacing: '0.5px',
         textTransform: 'uppercase',
         color: '#F8A231',
@@ -61,7 +66,8 @@ const styles = {
     },
     statNumber_orange_center: {
         fontSize: '10px',
-        fontFamily: 'Roboto Light',
+        fontFamily: 'Roboto',
+        fontWeight: 100,
         letterSpacing: '0.5px',
         textTransform: 'uppercase',
         color: '#F8A231',
@@ -69,12 +75,13 @@ const styles = {
     },
     percentage: {
         position: 'absolute',
-        fontFamily: 'Roboto Medium',
+        fontFamily: 'Roboto',
+        fontWeight: 300,
         fontSize: '2vw'
     },
     bigNumber: {
         fontSize: '3.5vw',
-        fontFamily: 'Roboto Medium',
+        fontFamily: 'Roboto',
         fontWeight: '400',
         marginTop: 'auto',
         marginBottom: '0'

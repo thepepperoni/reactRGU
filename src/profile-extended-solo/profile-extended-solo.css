@@ -84,19 +84,22 @@
 }
 
 .ratingHeader-title {
-    font-family: 'Roboto Medium';
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
     font-size: 0.6em;
     float: left;
     color: #635176;
 }
 .ratingHeader-ranking {
-    font-family: 'Roboto Light';
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
     font-size: 0.6em;
     opacity: 0.5;
     float: right;
 }
 .ratingHeader-rankingNumber {
-    font-family: 'Roboto Medium';
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
     font-size: 0.6em;
     float: right;
     margin-right: 2px;
@@ -133,7 +136,8 @@
     margin-right: auto;
 }
 .analyticsTitle {
-    font-family: 'Roboto Medium';
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
     font-size: 0.6em;
     float: left;
     color: #635176;
