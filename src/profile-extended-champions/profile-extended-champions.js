@@ -13,7 +13,31 @@ const champions = [
     { id: 4, name: 'Jade', winrate: 25, xp: 40000, games: 100 },
     { id: 5, name: 'Alysia', winrate: 30, xp: 40000, games: 200 }
 ];
-
+const styles = {
+    FirstRowTitle: {
+        fontFamily: 'Roboto',
+        fontWeight: 500,
+        fontSize: '1.125em'
+    },
+    selector: {
+        marginTop: '2px',
+        marginBottom: 'auto',
+        marginLeft: '30px'
+    },
+    selector2: {
+        marginTop: '2px',
+        marginBottom: 'auto',
+        marginLeft: '10px'
+    },
+    refresh: {
+        margin: 'auto',
+        fontFamily: 'Roboto',
+        fontWeight: 100,
+        fontSize: '0.7em',
+        marginRight: '4px',
+        opacity: '0.3'
+    }
+};
 /*
 function ChampionList(props){
 
@@ -66,36 +90,65 @@ export default class ExtendedProfileChampions extends React.Component {
     render() {
         return (
             <div className="container-tab">
-                <div className="column-1">
-                    <SelectField
-                        value={this.state.season}
-                        onChange={this.handleSeason}
-                        floatingLabelStyle={{ color: '#F8A231' }}
-                        labelStyle={{ color: 'white' }}
-                    >
-                        <MenuItem value={1} primaryText="Season 1" />
-                        <MenuItem value={2} primaryText="Season -1" />
-                        <MenuItem value={3} primaryText="Season -2" />
-                        <MenuItem value={4} primaryText="Season -3" />
-                        <MenuItem value={5} primaryText="Season -4" />
-                    </SelectField>
-
-                    <SelectField
-                        value={this.state.role}
-                        onChange={this.handleRole}
-                        floatingLabelStyle={{ color: '#F8A231' }}
-                        labelStyle={{ color: 'white' }}
-                    >
-                        <MenuItem value={1} primaryText="Support" />
-                        <MenuItem value={2} primaryText="Ranged" />
-                        <MenuItem value={3} primaryText="Tank" />
-                        <MenuItem value={4} primaryText="Melee" />
-                    </SelectField>
-
-                    <RaisedButton
-                        backgroundColor="#1a1124"
-                        icon={<NavigationRefresh color={fullWhite} />}
-                    />
+                <div className="zero-row" />
+                <div className="contentChamps">
+                    <div className="column-1">
+                        <span style={styles.FirstRowTitle}>Statistics</span>
+                        <div style={styles.selector}>
+                            <SelectField
+                                value={this.state.season}
+                                onChange={this.handleSeason}
+                                underlineStyle={{
+                                    borderColor: '#635176',
+                                    maxWidth: '93%'
+                                }}
+                                floatingLabelStyle={{
+                                    color: '#F8A231'
+                                }}
+                                labelStyle={{
+                                    color: 'white',
+                                    opacity: '0.5',
+                                    fontSize: '0.8em'
+                                }}
+                            >
+                                <MenuItem value={1} primaryText="Season 1" />
+                                <MenuItem value={2} primaryText="Season -1" />
+                                <MenuItem value={3} primaryText="Season -2" />
+                                <MenuItem value={4} primaryText="Season -3" />
+                                <MenuItem value={5} primaryText="Season -4" />
+                            </SelectField>
+                        </div>
+                        <div style={styles.selector2}>
+                            <SelectField
+                                value={this.state.role}
+                                onChange={this.handleRole}
+                                underlineStyle={{
+                                    borderColor: '#635176',
+                                    maxWidth: '93%'
+                                }}
+                                floatingLabelStyle={{
+                                    color: '#F8A231'
+                                }}
+                                labelStyle={{
+                                    color: 'white',
+                                    opacity: '0.5',
+                                    fontSize: '0.8em'
+                                }}
+                            >
+                                <MenuItem value={1} primaryText="Support" />
+                                <MenuItem value={2} primaryText="Ranged" />
+                                <MenuItem value={3} primaryText="Tank" />
+                                <MenuItem value={4} primaryText="Melee" />
+                            </SelectField>
+                        </div>
+                        <div className="refresh">
+                            <span style={styles.refresh} />
+                            <embed
+                                className="refreshIcon"
+                                src={require('../images/ic_cached_white_24px.svg')}
+                            />
+                        </div>
+                    </div>
                 </div>
                 {champions.map(champion => (
                     <Champion
