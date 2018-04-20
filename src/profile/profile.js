@@ -3,7 +3,6 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import MoreHorizIcon from 'material-ui/svg-icons/navigation/more-horiz';
-
 //import SwipeableViews from 'react-swipeable-views';
 import './profile.css';
 import ScrollButton from '../scroll-button';
@@ -19,7 +18,7 @@ export default class ProfileTabs extends React.Component {
     }
 
     componentDidMount() {
-        //console.log(this.state.id);
+        console.log('userid in profile: ' + this.state.data.id);
     }
     //function(event: object, child: object) => void
     handleMenuItemClick = event => {
@@ -142,7 +141,7 @@ export default class ProfileTabs extends React.Component {
                     <div className="bottomLine" />
                 </div>
 
-                <ExtendedProfile />
+                <ExtendedProfile userId={this.state.data.id} />
             </div>
         );
     }
