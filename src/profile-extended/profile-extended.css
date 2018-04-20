@@ -67,7 +67,7 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    height: 40%;
+    height: 20px;
 }
 .wrapperusername2 {
     display: flex;
@@ -76,12 +76,12 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    height: 2%;
+    height: 20px;
 }
 .inkbarlower {
     display: block;
     position: absolute;
-    background-color: red;
+
     margin: 0;
     padding: 0;
     z-index: 0;
@@ -103,11 +103,11 @@
 .navBar {
     display: flex;
     width: 88%;
+    max-height: 28px;
     margin-left: auto;
     margin-right: auto;
     flex-direction: row;
     background-color: #1a1124;
-    margin-top: 1%;
 }
 .push {
     margin-left: auto;
@@ -118,11 +118,12 @@
     font-weight: 500;
     font-size: 0.65em;
     margin-left: 40px;
-    margin-top: auto;
+    margin-top: 10px;
     margin-bottom: auto;
     color: rgba(255, 255, 255, 0.2);
     letter-spacing: 1px;
     transition: 1s;
+
     cursor: pointer;
 }
 .navMenu:hover {
@@ -134,6 +135,8 @@
     transition: 1s;
     cursor: pointer;
     z-index: 100;
+    margin-top: 5px;
+    margin-bottom: auto;
 }
 
 .menuLogo:hover {
@@ -153,6 +156,8 @@
     margin-right: 0;
     transition: 1s;
     cursor: pointer;
+    margin-bottom: auto;
+    margin-top: 5px;
 }
 .searchIcon:hover {
     opacity: 1;
