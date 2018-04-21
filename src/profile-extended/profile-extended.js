@@ -7,7 +7,6 @@ import Avatar from 'material-ui/Avatar';
 import ExtendedProfileSolo from '../profile-extended-solo/profile-extended-solo';
 import ExtendedProfileTeam from '../profile-extended-teams/profile-extended-team';
 import ExtendedProfileChampions from '../profile-extended-champions/profile-extended-champions';
-import FlatButton from 'material-ui/FlatButton';
 const styles = {
     headline: {
         fontSize: 24,
@@ -40,13 +39,29 @@ export default class ExtendedProfile extends React.Component {
         super(props);
         this.state = {
             slideIndex: 0,
-            userId: props.userId
+            userId: props.userId,
+            loadedTeam: false,
+            loadedChampions: false
         };
     }
     handleChange = value => {
         this.setState({
             slideIndex: value
         });
+        switch (value) {
+            case 1:
+                this.setState({
+                    loadedTeam: true
+                });
+                break;
+            case 2:
+                this.setState({
+                    loadedChampion: true
+                });
+                break;
+            default:
+                break;
+        }
     };
 
     render() {
@@ -110,10 +125,18 @@ export default class ExtendedProfile extends React.Component {
                         <br />
                     </div>
                     <div>
-                        <ExtendedProfileTeam userId={this.state.userId} />
+                        {this.state.loadedTeam ? (
+                            <ExtendedProfileTeam userId={this.state.userId} />
+                        ) : (
+                            ''
+                        )}
                     </div>
                     <div>
-                        <ExtendedProfileChampions />
+                        {this.state.loadedChampion ? (
+                            <ExtendedProfileChampions />
+                        ) : (
+                            ''
+                        )}
                     </div>
                 </SwipeableViews>
             </div>
