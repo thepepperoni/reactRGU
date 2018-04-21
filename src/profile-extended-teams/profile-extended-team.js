@@ -155,7 +155,11 @@ export default class ExtendedProfileTeam extends React.Component {
         this.state = {
             value: 7,
             userId: props.userId,
-            items: []
+            items: [],
+            all: [],
+            team2V2: [],
+            team3V3: [],
+            valueTeamType: 0
         };
     }
 
@@ -164,10 +168,28 @@ export default class ExtendedProfileTeam extends React.Component {
     }
     //*
 
-    handleChange = (event, index, value) => {
-        this.setState({ value: value, isLoaded: false }, () => {
-            //console.log("state value" + this.state.value);
-            getTeam(this);
+    handleChangeSeason = (event, index, value) => {
+        this.setState(
+            { value: value, isLoaded: false, valueTeamType: 0 },
+            () => {
+                getTeam(this);
+            }
+        );
+    };
+
+    handleChangeTeamType = (event, index, value) => {
+        this.setState({ valueTeamType: value }, () => {
+            switch (this.state.valueTeamType) {
+                case 0:
+                    this.setState({ items: this.state.all });
+                    break;
+                case 1:
+                    this.setState({ items: this.state.team2V2 });
+                    break;
+                case 2:
+                    this.setState({ items: this.state.team3V3 });
+                    break;
+            }
         });
     };
 
@@ -182,7 +204,7 @@ export default class ExtendedProfileTeam extends React.Component {
                             <SelectField
                                 style={
                                     {
-                                        //backgroundColor: "#1a1124"
+                                        //backgroundColor: '#1a1124'
                                     }
                                 }
                                 underlineStyle={{
@@ -190,7 +212,7 @@ export default class ExtendedProfileTeam extends React.Component {
                                     maxWidth: '93%'
                                 }}
                                 value={this.state.value}
-                                onChange={this.handleChange}
+                                onChange={this.handleChangeSeason}
                                 floatingLabelStyle={{
                                     color: '#F8A231'
                                 }}
@@ -202,6 +224,34 @@ export default class ExtendedProfileTeam extends React.Component {
                             >
                                 <MenuItem value={7} primaryText="Season 1" />
                                 <MenuItem value={6} primaryText="Pre-Season" />
+                            </SelectField>
+                        </div>
+
+                        <div style={styles.selector}>
+                            <SelectField
+                                style={
+                                    {
+                                        //backgroundColor: '#1a1124'
+                                    }
+                                }
+                                underlineStyle={{
+                                    borderColor: '#635176',
+                                    maxWidth: '93%'
+                                }}
+                                value={this.state.valueTeamType}
+                                onChange={this.handleChangeTeamType}
+                                floatingLabelStyle={{
+                                    color: '#F8A231'
+                                }}
+                                labelStyle={{
+                                    color: 'white',
+                                    opacity: '0.5',
+                                    fontSize: '0.8em'
+                                }}
+                            >
+                                <MenuItem value={0} primaryText="All Teams" />
+                                <MenuItem value={1} primaryText="2V2" />
+                                <MenuItem value={2} primaryText="3v3" />
                             </SelectField>
                         </div>
                         <div className="refresh">
@@ -245,9 +295,29 @@ function getTeam(ref) {
             result => {
                 ref.setState({
                     isLoaded: true,
-                    items: result.data
+                    items: result.data,
+                    all: result.data
                 });
-                console.log(ref.state.items);
+                let t2 = [];
+                let t3 = [];
+                result.data.filter(t => {
+                    switch (t.attributes.stats.members.length) {
+                        case 2:
+                            t2.push(t);
+                            break;
+                        case 3:
+                            t3.push(t);
+                        default:
+                            break;
+                    }
+                });
+                //*
+                ref.setState({
+                    team2V2: t2,
+                    team3V3: t3
+                });
+                //*/
+                console.log(t2);
             },
             // Note: it's important to handle errors here
             // instead of a catch() block so that we don't swallow
