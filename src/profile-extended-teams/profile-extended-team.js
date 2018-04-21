@@ -1,6 +1,5 @@
 import React from 'react';
 import './profile-extended-team.css';
-import { userId } from '../profile/profile';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import Avatar from 'material-ui/Avatar';
@@ -47,40 +46,22 @@ const styles = {
     }
 };
 
-function TeamType(props) {
-    switch (props.size) {
-        case 1:
-            return 'SOLO';
+const teamTypeText = {
+    1: 'SOLO',
+    2: '2V2',
+    3: '3V3'
+};
 
-        case 2:
-            return '2V2';
-        case 3:
-            return '3V3';
-    }
-}
-
-function TeamDivision(props) {
-    switch (props.division) {
-        case 0:
-            return 'Placement';
-        case 1:
-            return 'Bronze';
-
-        case 2:
-            return 'Silver';
-        case 3:
-            return 'Gold';
-        case 4:
-            return 'Platinum';
-        case 5:
-            return 'Diamond';
-        case 6:
-            return 'Champion League';
-        case 7:
-            return 'Grand Champion';
-    }
-}
-
+const teamLeagueText = {
+    0: 'Placement',
+    1: 'Bronze',
+    2: 'Silver',
+    3: 'Gold',
+    4: 'Platinum',
+    5: 'Diamond',
+    6: 'Champion League',
+    7: 'Grand Champion'
+};
 function Loader() {
     return (
         <div style={{ textAlign: 'center' }}>
@@ -88,12 +69,11 @@ function Loader() {
         </div>
     );
 }
-
 function Teams(props) {
     const content = props.teams.map(team => (
         <div key={team.id} className="team-card">
             <p className="teamHeader">
-                <TeamType size={team.attributes.stats.members.length} />
+                {teamTypeText[team.attributes.stats.members.length]}
             </p>
             <Avatar
                 src={require('../images/placement.png')}
@@ -105,7 +85,7 @@ function Teams(props) {
                 {team.attributes.name === '' ? 'TBD' : team.attributes.name}
             </h3>
             <p style={styles.division}>
-                <TeamDivision division={team.attributes.stats.league + 1} />
+                {teamLeagueText[team.attributes.stats.league + 1]}
             </p>
             <div
                 style={{
@@ -141,7 +121,8 @@ function Teams(props) {
                     }}
                 >
                     {' '}
-                    {Math.floor(Math.random() * (4351 - 34) + 34)}{' '}
+                    {team.attributes.stats.division} :{' '}
+                    {team.attributes.stats.divisionRating}
                 </p>
             </div>
         </div>
@@ -188,6 +169,8 @@ export default class ExtendedProfileTeam extends React.Component {
                     break;
                 case 2:
                     this.setState({ items: this.state.team3V3 });
+                    break;
+                default:
                     break;
             }
         });
@@ -307,9 +290,11 @@ function getTeam(ref) {
                             break;
                         case 3:
                             t3.push(t);
+                            break;
                         default:
                             break;
                     }
+                    return 0;
                 });
                 //*
                 ref.setState({
