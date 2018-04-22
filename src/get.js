@@ -10,7 +10,8 @@ class Get extends React.Component {
             error: null,
             items: [],
             isLoaded: false,
-            id: props.id
+            id: props.id,
+            soloTeamData: []
         };
     }
 
@@ -31,10 +32,11 @@ class Get extends React.Component {
             .then(
                 result => {
                     this.setState({
-                        isLoaded: true,
+                        isLoaded: false,
                         items: result.data['0']
                     });
                     console.log(this.state.items);
+                    this.getSoloData();
                 },
                 // Note: it's important to handle errors here
                 // instead of a catch() block so that we don't swallow
@@ -67,11 +69,50 @@ class Get extends React.Component {
         } else {
             return (
                 <div>
-                    <ProfileTabs data={items} />
+                    <ProfileTabs data={items} solo={this.state.soloTeamData} />
                 </div>
             );
         }
         //*/
     }
+
+    getSoloData = () => {
+        fetch(
+            'https://api.dc01.gamelockerapp.com/shards/global/teams?tag[season]=7&tag[playerIds]=' +
+                this.state.items.id,
+            {
+                method: 'GET',
+                headers: {
+                    Authorization:
+                        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3MzRiOTU5MC1mZDM4LTAxMzUtNmNhZC0wYTU4NjQ2MGE2NGYiLCJpc3MiOiJnYW1lbG9ja2VyIiwiaWF0IjoxNTE5NjU5MjY1LCJwdWIiOiJzdHVubG9jay1zdHVkaW9zIiwidGl0bGUiOiJiYXR0bGVyaXRlIiwiYXBwIjoiYmF0dGxldS0zN2RhZGFlZC1hY2FkLTQ3MjctODZiMS02ZTJlOGM5NGFlOWQiLCJzY29wZSI6ImNvbW11bml0eSIsImxpbWl0IjoxMH0.jf1RKIU35VN05oIp4031YxOYyLHSDlvQ0fefnoCCBNQ',
+                    Accept: 'application/json'
+                }
+            }
+        )
+            .then(res => res.json())
+            .then(
+                result => {
+                    //console.log(result);
+
+                    let team = result.data.filter(t => {
+                        if (t.attributes.stats.members.length === 1) {
+                            this.setState({
+                                soloTeamData: t,
+                                isLoaded: true
+                            });
+                            return t;
+                        }
+                    });
+
+                    console.log(team);
+                },
+                error => {
+                    this.setState({
+                        isLoaded: true,
+                        error
+                    });
+                }
+            );
+    };
 }
 export default Get;
