@@ -34,12 +34,29 @@ export default class Champion extends React.Component {
         return (
             <div className="champion-container">
                 <div className="champion_data">
-                    <p style={{ margin: 10 }}>#{this.state.id}</p>
-                    <p style={{ width: 100, textAlign: 'center' }}>
-                        {this.state.games}
+                    <p
+                        className="champPlace"
+                        style={{
+                            margin: 10,
+                            marginLeft: 20,
+                            color: 'rgba(255, 255, 255, 0.25)'
+                        }}
+                    >
+                        #{this.state.id}
+                    </p>
+                    <p
+                        className="champGamesPlayed"
+                        style={{
+                            width: 120,
+                            textAlign: 'left',
+                            marginLeft: '10px'
+                        }}
+                    >
+                        {this.state.games} Games
                     </p>
 
                     <Avatar
+                        style={{ marginLeft: '5px' }}
                         size={40}
                         src={require('../images/placement.png')}
                     />
@@ -47,16 +64,25 @@ export default class Champion extends React.Component {
                         mode="determinate"
                         value={this.state.winrate}
                         style={{
+                            width: '70%',
                             height: 10,
                             margin: 5,
                             backgroundColor: '#100a1c',
-                            borderRadius: '6px'
+                            borderRadius: '6px',
+                            marginLeft: '10px'
                         }}
                         color={'#f8a231'}
                     />
-                    <p>{this.state.winrate}%</p>
+                    <p className="WinPercent">
+                        {this.state.winrate}
+                        <span className="WinPercentSign">%</span>{' '}
+                    </p>
+
                     <IconButton
-                        style={{ marginLeft: 'auto' }}
+                        iconStyle={{ color: 'rgba(255, 255, 255, 0.25)' }}
+                        style={{
+                            marginLeft: 'auto'
+                        }}
                         className="push"
                         onClick={this.handleMoreClick}
                     >

@@ -28,7 +28,7 @@ const styles = {
     },
     FirstRowTitle: {
         fontFamily: 'Roboto',
-        fontWeight: 300,
+        fontWeight: 400,
         fontSize: '1.125em'
     },
     selector: {
@@ -43,14 +43,14 @@ const styles = {
     statTitle: {
         fontSize: '18px',
         fontFamily: 'Roboto',
-        fontWeight: 300,
+        fontWeight: 500,
         margin: 0
     },
     statNumber_blue: {
         fontSize: '10px',
         fontFamily: 'Roboto',
-        fontWeight: 300,
-        letterSpacing: '0.5px',
+        fontWeight: 500,
+        letterSpacing: '0.65px',
         textTransform: 'uppercase',
         color: '#635176',
         marginTop: -5
@@ -58,8 +58,8 @@ const styles = {
     statNumber_orange: {
         fontSize: '10px',
         fontFamily: 'Roboto',
-        fontWeight: 100,
-        letterSpacing: '0.5px',
+        fontWeight: 300,
+        letterSpacing: '0.65px',
         textTransform: 'uppercase',
         color: '#F8A231',
         marginTop: 0
@@ -67,8 +67,8 @@ const styles = {
     statNumber_orange_center: {
         fontSize: '10px',
         fontFamily: 'Roboto',
-        fontWeight: 100,
-        letterSpacing: '0.5px',
+        fontWeight: 300,
+        letterSpacing: '0.65px',
         textTransform: 'uppercase',
         color: '#F8A231',
         marginTop: '0'
@@ -76,13 +76,13 @@ const styles = {
     percentage: {
         position: 'absolute',
         fontFamily: 'Roboto',
-        fontWeight: 300,
+        fontWeight: 500,
         fontSize: '2vw'
     },
     bigNumber: {
         fontSize: '3.5vw',
         fontFamily: 'Roboto',
-        fontWeight: '400',
+        fontWeight: '500',
         marginTop: 'auto',
         marginBottom: '0'
     }
@@ -150,21 +150,25 @@ export default class ExtendedProfileSolo extends React.Component {
                                     GLOBAL RANKING
                                 </span>
                             </div>
-                            <embed
-                                style={styles.titlepic}
-                                src={require('../images/grand Champ.png')}
-                            />
-                            <div className="separator" />
-                            <div className="solo-rating-division">
-                                <p style={styles.statTitle}>Grand Champion</p>
-                                <p style={styles.statNumber_orange}>
-                                    Division V
-                                </p>
-                                <p style={{ height: '6px' }} />
-                                <p style={styles.statTitle}>1100</p>
-                                <p style={styles.statNumber_orange}>
-                                    Division Points
-                                </p>
+                            <div className="RatingArea">
+                                <embed
+                                    style={styles.titlepic}
+                                    src={require('../images/grand Champ.png')}
+                                />
+                                <div className="separator" />
+                                <div className="solo-rating-division">
+                                    <p style={styles.statTitle}>
+                                        Grand Champion
+                                    </p>
+                                    <p style={styles.statNumber_orange}>
+                                        Division V
+                                    </p>
+                                    <p style={{ height: '6px' }} />
+                                    <p style={styles.statTitle}>1100</p>
+                                    <p style={styles.statNumber_orange}>
+                                        Division Points
+                                    </p>
+                                </div>
                             </div>
                         </div>
                         <div className="analytics">
@@ -173,73 +177,75 @@ export default class ExtendedProfileSolo extends React.Component {
                                     ANALYTICS
                                 </span>
                             </div>
-                            <div className="donut">
-                                <VictoryPie
-                                    animate={{
-                                        duration: 2000,
-                                        easing: 'bounce'
-                                    }}
-                                    innerRadius={120}
-                                    colorScale={['#F8A231', '##100a1c']}
-                                    data={[
-                                        { x: 'Win', y: 75 },
-                                        { x: '', y: 25 }
-                                    ]}
-                                />
-                                <span style={styles.percentage}>75</span>
-                            </div>
+                            <div className="AnalyticsArea">
+                                <div className="donut">
+                                    <VictoryPie
+                                        animate={{
+                                            duration: 2000,
+                                            easing: 'bounce'
+                                        }}
+                                        innerRadius={120}
+                                        colorScale={['#F8A231', '##100a1c']}
+                                        data={[
+                                            { x: 'Win', y: 75 },
+                                            { x: '', y: 25 }
+                                        ]}
+                                    />
+                                    <span style={styles.percentage}>75</span>
+                                </div>
 
-                            <div
-                                style={{
-                                    marginTop: '60px',
-                                    marginBottom: 'auto'
-                                }}
-                            >
-                                <p style={styles.statTitle}>Win Rate</p>
-                                <p style={styles.statNumber_orange}>
-                                    percentage
-                                </p>
-                            </div>
-                            <div className="separator" />
-                            <div className="analyticsContainer">
                                 <div
                                     style={{
-                                        justifyContent: 'center',
-                                        alignItems: 'center',
-                                        display: 'flex',
-                                        flexDirection: 'column'
+                                        marginTop: '60px',
+                                        marginBottom: 'auto'
                                     }}
                                 >
-                                    <p style={styles.bigNumber}>3803</p>
-                                    <p style={styles.statNumber_blue}>
-                                        Games played
+                                    <p style={styles.statTitle}>Win Rate</p>
+                                    <p style={styles.statNumber_orange}>
+                                        percentage
                                     </p>
                                 </div>
-                                <div
-                                    style={{
-                                        justifyContent: 'center',
-                                        alignItems: 'center',
-                                        display: 'flex',
-                                        flexDirection: 'column'
-                                    }}
-                                >
-                                    <p style={styles.bigNumber}>2546</p>
-                                    <p style={styles.statNumber_blue}>
-                                        Games Won
-                                    </p>
-                                </div>
-                                <div
-                                    style={{
-                                        justifyContent: 'center',
-                                        alignItems: 'center',
-                                        display: 'flex',
-                                        flexDirection: 'column'
-                                    }}
-                                >
-                                    <p style={styles.bigNumber}>1356</p>
-                                    <p style={styles.statNumber_blue}>
-                                        Games Lost
-                                    </p>
+                                <div className="separator" />
+                                <div className="analyticsContainer">
+                                    <div
+                                        style={{
+                                            justifyContent: 'center',
+                                            alignItems: 'center',
+                                            display: 'flex',
+                                            flexDirection: 'column'
+                                        }}
+                                    >
+                                        <p style={styles.bigNumber}>3803</p>
+                                        <p style={styles.statNumber_blue}>
+                                            Games played
+                                        </p>
+                                    </div>
+                                    <div
+                                        style={{
+                                            justifyContent: 'center',
+                                            alignItems: 'center',
+                                            display: 'flex',
+                                            flexDirection: 'column'
+                                        }}
+                                    >
+                                        <p style={styles.bigNumber}>2546</p>
+                                        <p style={styles.statNumber_blue}>
+                                            Games Won
+                                        </p>
+                                    </div>
+                                    <div
+                                        style={{
+                                            justifyContent: 'center',
+                                            alignItems: 'center',
+                                            display: 'flex',
+                                            flexDirection: 'column'
+                                        }}
+                                    >
+                                        <p style={styles.bigNumber}>1356</p>
+                                        <p style={styles.statNumber_blue}>
+                                            Games Lost
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

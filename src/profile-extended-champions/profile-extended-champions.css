@@ -53,7 +53,35 @@
     margin: 7px;
     width: 100%;
 }
-
+.champPlace {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.125em;
+    font-weight: 400;
+    margin-left: 30px;
+}
+.champGamesPlayed {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.125em;
+    font-weight: 400;
+    width: 20%;
+}
+.WinPercent {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1.4em;
+    margin-top: 0;
+    margin-bottom: 0;
+    position: relative;
+    margin-left: 0px;
+}
+.WinPercentSign {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    margin-top: 3px;
+    margin-bottom: auto;
+    position: absolute;
+}
 .extra-stats {
     display: flex;
     flex-direction: row;

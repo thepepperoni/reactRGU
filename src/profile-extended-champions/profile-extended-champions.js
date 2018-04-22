@@ -16,7 +16,7 @@ const champions = [
 const styles = {
     FirstRowTitle: {
         fontFamily: 'Roboto',
-        fontWeight: 500,
+        fontWeight: 400,
         fontSize: '1.125em'
     },
     selector: {
