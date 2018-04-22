@@ -62,6 +62,7 @@ const teamLeagueText = {
     6: 'Champion League',
     7: 'Grand Champion'
 };
+
 function Loader() {
     return (
         <div style={{ textAlign: 'center' }}>
@@ -69,6 +70,7 @@ function Loader() {
         </div>
     );
 }
+
 function Teams(props) {
     const content = props.teams.map(team => (
         <div key={team.id} className="team-card">
@@ -237,7 +239,7 @@ export default class ExtendedProfileTeam extends React.Component {
                                 <MenuItem value={2} primaryText="3v3" />
                             </SelectField>
                         </div>
-                        <div className="refresh">
+                        <div className="refresh" onClick={this.refresh}>
                             <span style={styles.refresh} />
                             <embed
                                 className="refreshIcon"
@@ -257,7 +259,11 @@ export default class ExtendedProfileTeam extends React.Component {
             </div>
         );
     }
+    refresh = () => {
+        this.setState({ isLoaded: false, valueTeamType: 0 }, getTeam(this));
+    };
 }
+
 function getTeam(ref) {
     fetch(
         'https://api.dc01.gamelockerapp.com/shards/global/teams?tag[season]=' +
