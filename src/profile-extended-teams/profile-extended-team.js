@@ -8,7 +8,8 @@ import CircularProgress from 'material-ui/CircularProgress';
 const styles = {
     FirstRowTitle: {
         fontFamily: 'Roboto',
-        fontSize: '1.125em'
+        fontSize: '1.125em',
+        fontWidth: 400
     },
     selector: {
         marginTop: '2px',
@@ -25,7 +26,7 @@ const styles = {
     teamTitle: {
         fontSize: '18px',
         fontFamily: 'Roboto',
-        fontWeight: 200,
+        fontWeight: 500,
         marginTop: '5px',
         marginBottom: 0
     },
@@ -39,9 +40,9 @@ const styles = {
         marginTop: '0',
         marginBottom: '5px',
         fontFamily: 'Roboto',
-        fontSize: '0.7em',
+        fontSize: '0.65em',
         textTransform: 'uppercase',
-        fontWeight: 100,
+        fontWeight: 400,
         color: '#f8a231'
     }
 };

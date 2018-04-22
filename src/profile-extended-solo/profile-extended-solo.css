@@ -73,6 +73,16 @@
     background-repeat: no-repeat;
 }
 
+.RatingArea {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-top: 15px;
+}
 .ratingHeader {
     position: absolute;
 
@@ -85,26 +95,39 @@
 
 .ratingHeader-title {
     font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-    font-size: 0.6em;
+    font-weight: 500;
+    font-size: 0.65em;
     float: left;
     color: #635176;
 }
 .ratingHeader-ranking {
     font-family: 'Roboto', sans-serif;
-    font-weight: 100;
-    font-size: 0.6em;
+    font-weight: 300;
+    font-size: 0.65em;
     opacity: 0.5;
     float: right;
 }
 .ratingHeader-rankingNumber {
     font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-    font-size: 0.6em;
+    font-weight: 400;
+    font-size: 0.65em;
     float: right;
-    margin-right: 2px;
-    margin-left: 2px;
+    margin-right: 3px;
+    margin-left: 3px;
+    margin-top: -1px;
     color: #635176;
+}
+.AnalyticsArea {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 98%;
+    margin-top: 15px;
 }
 .analytics {
     position: relative;
@@ -137,8 +160,8 @@
 }
 .analyticsTitle {
     font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-    font-size: 0.6em;
+    font-weight: 500;
+    font-size: 0.65em;
     float: left;
     color: #635176;
 }

@@ -32,7 +32,7 @@
     flex: 1;
     max-width: 24.3%;
     min-width: 240px;
-    min-height: 35vh;
+    min-height: 37vh;
     background-color: #1a1124;
     margin: 0;
     position: relative;
@@ -45,6 +45,7 @@
         from(transparent),
         to(#635176)
     );
+    margin-bottom: 10px;
     background-image: -webkit-linear-gradient(transparent, #635176);
     background-image: -moz-linear-gradient(transparent, #635176),
         -moz-linear-gradient(transparent, #635176);
@@ -89,7 +90,8 @@
 
 .teamHeader {
     top: 10px;
-    font-family: Roboto Medium;
+    font-family: Roboto;
+    font-weight: 400;
     font-size: 0.7em;
     text-transform: uppercase;
     color: #7c5e9c;
