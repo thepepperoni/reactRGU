@@ -101,6 +101,7 @@ class SearchPage extends React.Component {
                     <img
                         style={styles.war}
                         src={require('./images/transpr.png')}
+                        alt={''}
                     />
                 </div>
                 <div style={styles.mark}>
