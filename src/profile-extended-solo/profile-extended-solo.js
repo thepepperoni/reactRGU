@@ -2,10 +2,7 @@ import React from 'react';
 import { VictoryLine, VictoryChart, VictoryAxis, VictoryPie } from 'victory';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
-import RaisedButton from 'material-ui/RaisedButton';
-import { fullWhite } from 'material-ui/styles/colors';
 import './profile-extended-solo.css';
-import NavigationRefresh from 'material-ui/svg-icons/navigation/refresh';
 
 const data = [
     { date: '15 MAR', percentage: 25 },
@@ -17,6 +14,25 @@ const data = [
     { date: '21 MAR', percentage: 45 },
     { date: '22 MAR', percentage: 70 }
 ];
+const teamLeagueText = {
+    0: 'Placement',
+    1: 'Bronze',
+    2: 'Silver',
+    3: 'Gold',
+    4: 'Platinum',
+    5: 'Diamond',
+    6: 'Champion League',
+    7: 'Grand Champion'
+};
+
+const soloDivision = {
+    1: 'I',
+    2: 'II',
+    3: 'III',
+    4: 'IV',
+    5: 'V'
+};
+
 const styles = {
     refresh: {
         margin: 'auto',
@@ -87,9 +103,14 @@ const styles = {
         marginBottom: '0'
     }
 };
+
 export default class ExtendedProfileSolo extends React.Component {
     state = {
-        value: 1
+        value: 1,
+        soloTeamData: JSON.parse(localStorage.getItem('soloTeam')),
+        generalProfileData: JSON.parse(
+            localStorage.getItem('generalProfileData')
+        )
     };
     handleChange = (event, index, value) => this.setState({ value });
 
@@ -153,18 +174,39 @@ export default class ExtendedProfileSolo extends React.Component {
                             <div className="RatingArea">
                                 <embed
                                     style={styles.titlepic}
-                                    src={require('../images/grand Champ.png')}
+                                    //src={require('../images/grand Champ.png')}
+                                    src={require('../images/' +
+                                        (this.state.soloTeamData.attributes
+                                            .stats.league +
+                                            1) +
+                                        '.png')}
                                 />
                                 <div className="separator" />
                                 <div className="solo-rating-division">
                                     <p style={styles.statTitle}>
-                                        Grand Champion
+                                        {
+                                            teamLeagueText[
+                                                this.state.soloTeamData
+                                                    .attributes.stats.league + 1
+                                            ]
+                                        }
                                     </p>
                                     <p style={styles.statNumber_orange}>
-                                        Division V
+                                        Division{' '}
+                                        {
+                                            soloDivision[
+                                                this.state.soloTeamData
+                                                    .attributes.stats.division
+                                            ]
+                                        }{' '}
                                     </p>
                                     <p style={{ height: '6px' }} />
-                                    <p style={styles.statTitle}>1100</p>
+                                    <p style={styles.statTitle}>
+                                        {
+                                            this.state.soloTeamData.attributes
+                                                .stats.divisionRating
+                                        }
+                                    </p>
                                     <p style={styles.statNumber_orange}>
                                         Division Points
                                     </p>
@@ -187,11 +229,16 @@ export default class ExtendedProfileSolo extends React.Component {
                                         innerRadius={120}
                                         colorScale={['#F8A231', '##100a1c']}
                                         data={[
-                                            { x: 'Win', y: 75 },
-                                            { x: '', y: 25 }
+                                            { x: 'Win', y: this.winrate() },
+                                            {
+                                                x: '',
+                                                y: 100 - this.winrate() * 1
+                                            }
                                         ]}
                                     />
-                                    <span style={styles.percentage}>75</span>
+                                    <span style={styles.percentage}>
+                                        {this.winrate()}
+                                    </span>
                                 </div>
 
                                 <div
@@ -215,7 +262,12 @@ export default class ExtendedProfileSolo extends React.Component {
                                             flexDirection: 'column'
                                         }}
                                     >
-                                        <p style={styles.bigNumber}>3803</p>
+                                        <p style={styles.bigNumber}>
+                                            {this.state.generalProfileData
+                                                .attributes.stats['2'] +
+                                                this.state.generalProfileData
+                                                    .attributes.stats['3']}
+                                        </p>
                                         <p style={styles.statNumber_blue}>
                                             Games played
                                         </p>
@@ -228,7 +280,12 @@ export default class ExtendedProfileSolo extends React.Component {
                                             flexDirection: 'column'
                                         }}
                                     >
-                                        <p style={styles.bigNumber}>2546</p>
+                                        <p style={styles.bigNumber}>
+                                            {
+                                                this.state.generalProfileData
+                                                    .attributes.stats['2']
+                                            }
+                                        </p>
                                         <p style={styles.statNumber_blue}>
                                             Games Won
                                         </p>
@@ -241,7 +298,12 @@ export default class ExtendedProfileSolo extends React.Component {
                                             flexDirection: 'column'
                                         }}
                                     >
-                                        <p style={styles.bigNumber}>1356</p>
+                                        <p style={styles.bigNumber}>
+                                            {
+                                                this.state.generalProfileData
+                                                    .attributes.stats['3']
+                                            }
+                                        </p>
                                         <p style={styles.statNumber_blue}>
                                             Games Lost
                                         </p>
@@ -291,4 +353,12 @@ export default class ExtendedProfileSolo extends React.Component {
             </div>
         );
     }
+    winrate = () => {
+        return Math.round(
+            this.state.generalProfileData.attributes.stats['2'] /
+                (this.state.generalProfileData.attributes.stats['2'] +
+                    this.state.generalProfileData.attributes.stats['3']) *
+                100
+        );
+    };
 }

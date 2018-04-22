@@ -31,11 +31,17 @@ class Get extends React.Component {
             .then(res => res.json())
             .then(
                 result => {
-                    this.setState({
-                        isLoaded: false,
-                        items: result.data['0']
-                    });
-                    console.log(this.state.items);
+                    this.setState(
+                        {
+                            isLoaded: false,
+                            items: result.data['0']
+                        },
+
+                        localStorage.setItem(
+                            'generalProfileData',
+                            JSON.stringify(result.data['0'])
+                        )
+                    );
                     this.getSoloData();
                 },
                 // Note: it's important to handle errors here
@@ -93,18 +99,20 @@ class Get extends React.Component {
             .then(
                 result => {
                     //console.log(result);
-
+                    //*
                     let team = result.data.filter(t => {
                         if (t.attributes.stats.members.length === 1) {
-                            this.setState({
-                                soloTeamData: t,
-                                isLoaded: true
-                            });
                             return t;
                         }
                     });
+                    localStorage.setItem('soloTeam', JSON.stringify(team[0]));
+                    this.setState({
+                        soloTeamData: team[0],
+                        isLoaded: true
+                    });
+                    //*/
 
-                    console.log(team);
+                    //console.log(localStorage.getItem('soloTeam'));
                 },
                 error => {
                     this.setState({

@@ -41,7 +41,10 @@ export default class ExtendedProfile extends React.Component {
             slideIndex: 0,
             userId: props.userId,
             loadedTeam: false,
-            loadedChampions: false
+            loadedChampions: false,
+            generalProfileData: JSON.parse(
+                localStorage.getItem('generalProfileData')
+            )
         };
     }
     handleChange = value => {
@@ -97,7 +100,9 @@ export default class ExtendedProfile extends React.Component {
                             icon={<ActionAndroid />}
                             size={30}
                         />
-                        <h1 className="usernameExtended inline">Gugum</h1>
+                        <h1 className="usernameExtended inline">
+                            {this.state.generalProfileData.attributes.name}
+                        </h1>
                         <div className="userRank">
                             <span>GLOBAL RANKING</span>
                             <h5>#35</h5>
